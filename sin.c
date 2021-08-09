@@ -13,14 +13,12 @@ void printCos(double glad);
 
 int main (void)
 {
-	double firstNumber = getNumber("first");
-	
-	double secondNumber = getNumber("second");
-	
+	int flag = 0;
+	double firstNumber = getNumber("first");	
+	double secondNumber = getNumber("second");	
 	double increment = getNumber("increment");
 	 
-    getSin(firstNumber, secondNumber, increment);
-  	
+    getSin(firstNumber, secondNumber, increment);  	
     getCos(firstNumber, secondNumber, increment);
 
  return 0;
