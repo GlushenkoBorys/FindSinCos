@@ -5,20 +5,22 @@
 #include <stdlib.h>
 
 double getNumber(char stringIn []);
-void getResult(double firstNumber, double secondNumber, double increment, int flag);
+void getResult(double firstNumber, double secondNumber, double increment, void (*printSin)(double));
+void func ( void (*f)(int) );
+void printSin(double radians);
 
 
 int main (void)
 {
-	int sin = 1;
-	int cos = 2;
+	//double sin = 0;
+
 	double firstNumber = getNumber("first");	
 	double secondNumber = getNumber("second");	
 	double increment = getNumber("increment");
 	 
-    getResult(firstNumber, secondNumber, increment, sin);  
+    getResult(firstNumber, secondNumber, increment, printSin);  
     printf ("\n");	
-    getResult(firstNumber, secondNumber, increment, cos);
+    //getResult(firstNumber, secondNumber, increment, cos);
 	
  return 0;
 }
@@ -31,23 +33,38 @@ double getNumber(char stringIn [])
 	return number;
 }
 
-void getResult(double firstNumber, double secondNumber, double increment, int flag)
+void getResult(double firstNumber, double secondNumber, double increment, void (*function)(double))
 {
 	for(double i = firstNumber; i <= secondNumber; i+= increment){
    double radians = i;
    
-   if(flag == 1)
-   {
-    printf("Argument: %f radians    ", radians);
-    printf ("sin  : %.20f\n", sin(radians) );
-   }
+   function(radians);
    
-   if(flag == 2)
-   {
-    printf("Argument: %f radians    ", radians);
-    printf("cos  : %.20f\n", cos (radians) );
-   }
-   
-	}	
+	}
+	
 }
+
+//void getCos(double firstNumber, double secondNumber, double increment)
+//{
+//	for(double i = firstNumber; i <= secondNumber; i+= increment){
+//   double radians = i;   
+//	printCos(radians);
+//	}
+//	printf ("\n");
+//}
+
+void printSin(double radians)
+{
+	printf ("\n");
+	printf("Argument: %f radians    ", radians);
+    printf ("sin  : %.20f", sin(radians) );
+}
+
+//void printCos(double radians)
+//{
+//	printf ("\n");
+//	printf("Argument: %f radians    ", radians);
+//    printf ("cos  : %.20f", cos (radians) );
+//}
+
 
