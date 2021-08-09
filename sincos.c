@@ -12,7 +12,7 @@ void printCos(double radians);
 
 int main (void)
 {
-	//int flag = 0;
+	int flag = 0;
 	double firstNumber = getNumber("first");	
 	double secondNumber = getNumber("second");	
 	double increment = getNumber("increment");
