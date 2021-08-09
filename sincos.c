@@ -31,13 +31,14 @@ double getNumber(char stringIn [])
 	return number;
 }
 
-void getResult(double firstNumber, double secondNumber, double increment)
+void getSin(double firstNumber, double secondNumber, double increment)
 {
 	for(double i = firstNumber; i <= secondNumber; i+= increment){
    double radians = i;
    
 	printSin(radians);
 	}
+	printf ("\n");
 }
 
 void getCos(double firstNumber, double secondNumber, double increment)
@@ -46,19 +47,21 @@ void getCos(double firstNumber, double secondNumber, double increment)
    double radians = i;   
 	printCos(radians);
 	}
+	printf ("\n");
 }
 
 void printSin(double radians)
 {
-	printf("Argument: %f radians ", radians);
-    printf ("sin  : %.20f \n\n", sin(radians) );
+	printf ("\n");
+	printf("Argument: %f radians    ", radians);
+    printf ("sin  : %.20f", sin(radians) );
 }
 
 void printCos(double radians)
 {
 	printf ("\n");
-	printf("Argument: %f radians ", radians);
-    printf ("cos  : %.20f \n\n", cos (radians) );
+	printf("Argument: %f radians    ", radians);
+    printf ("cos  : %.20f", cos (radians) );
 }
 
 
