@@ -18,7 +18,7 @@ int main (void)
 	double increment = getNumber("increment");
 	 
     getSin(firstNumber, secondNumber, increment);  	
-    //getCos(firstNumber, secondNumber, increment);
+    getCos(firstNumber, secondNumber, increment);
 
  return 0;
 }
@@ -40,13 +40,13 @@ void getResult(double firstNumber, double secondNumber, double increment)
 	}
 }
 
-//void getCos(double firstNumber, double secondNumber, double increment)
-//{
-//	for(double i = firstNumber; i <= secondNumber; i+= increment){
-//   double radians = i;   
-//	printCos(radians);
-//	}
-//}
+void getCos(double firstNumber, double secondNumber, double increment)
+{
+	for(double i = firstNumber; i <= secondNumber; i+= increment){
+   double radians = i;   
+	printCos(radians);
+	}
+}
 
 void printSin(double radians)
 {
