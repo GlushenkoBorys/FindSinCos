@@ -41,14 +41,13 @@ void getSin(double firstNumber, double secondNumber, double increment)
 	}
 }
 
-void getCos(double firstNumber, double secondNumber, double increment)
-{
-	for(double i = firstNumber; i <= secondNumber; i+= increment){
-   double glad = i;
-   
-	printCos(glad);
-	}
-}
+//void getCos(double firstNumber, double secondNumber, double increment)
+//{
+//	for(double i = firstNumber; i <= secondNumber; i+= increment){
+//   double glad = i;   
+//	printCos(glad);
+//	}
+//}
 
 void printSin(double glad)
 {
