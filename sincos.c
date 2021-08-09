@@ -8,19 +8,17 @@ double getNumber(char stringIn []);
 void getResult(double firstNumber, double secondNumber, double increment, void (*printSin)(double));
 void func ( void (*f)(int) );
 void printSin(double radians);
-
+void printCos(double radians);
 
 int main (void)
 {
-	//double sin = 0;
-
 	double firstNumber = getNumber("first");	
 	double secondNumber = getNumber("second");	
 	double increment = getNumber("increment");
 	 
     getResult(firstNumber, secondNumber, increment, printSin);  
     printf ("\n");	
-    //getResult(firstNumber, secondNumber, increment, cos);
+    getResult(firstNumber, secondNumber, increment, printCos);
 	
  return 0;
 }
@@ -41,17 +39,7 @@ void getResult(double firstNumber, double secondNumber, double increment, void (
    function(radians);
    
 	}
-	
 }
-
-//void getCos(double firstNumber, double secondNumber, double increment)
-//{
-//	for(double i = firstNumber; i <= secondNumber; i+= increment){
-//   double radians = i;   
-//	printCos(radians);
-//	}
-//	printf ("\n");
-//}
 
 void printSin(double radians)
 {
@@ -60,11 +48,11 @@ void printSin(double radians)
     printf ("sin  : %.20f", sin(radians) );
 }
 
-//void printCos(double radians)
-//{
-//	printf ("\n");
-//	printf("Argument: %f radians    ", radians);
-//    printf ("cos  : %.20f", cos (radians) );
-//}
+void printCos(double radians)
+{
+	printf ("\n");
+	printf("Argument: %f radians    ", radians);
+    printf ("cos  : %.20f", cos (radians) );
+}
 
 
