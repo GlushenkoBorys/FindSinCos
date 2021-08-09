@@ -19,7 +19,7 @@ int main (void)
 	double increment = getNumber("increment");
 	 
     getSin(firstNumber, secondNumber, increment);  	
-    getCos(firstNumber, secondNumber, increment);
+    //getCos(firstNumber, secondNumber, increment);
 
  return 0;
 }
