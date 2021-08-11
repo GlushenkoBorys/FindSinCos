@@ -5,8 +5,8 @@
 #include <stdlib.h>
 
 double getNumber(char stringIn []);
-double * getResult (double *ptrArray, double firstNumber, double secondNumber, double increment, char string [], double (*ptrMathFunc)(double));
-void printResult(double ptrArray [], char string [], int count);
+double * getResult (double *ptrArray, double firstNumber, double secondNumber, double increment, double (*ptrMathFunc)(double));
+void printResult(double ptrArray [], char string [], double firstNumber, double secondNumber, double increment);
 
 
 int main (void)
@@ -20,11 +20,11 @@ int main (void)
 	double array[arrayLength];
 	double *ptrArray = array;
 	 		
-	ptrArray = getResult(ptrArray, firstNumber, secondNumber, increment, "sin", sin);  
-	printResult( ptrArray, "sin", arrayLength);
+	ptrArray = getResult(ptrArray, firstNumber, secondNumber, increment, sin);  
+	printResult( ptrArray, "sin", firstNumber, secondNumber, increment);
     printf ("\n");	
-	ptrArray = getResult(ptrArray, firstNumber, secondNumber, increment, "sin", cos);  
-	printResult( ptrArray, "cos", arrayLength);
+	ptrArray = getResult(ptrArray, firstNumber, secondNumber, increment, cos);  
+	printResult( ptrArray, "cos", firstNumber, secondNumber, increment);
 	
  return 0;
 }
@@ -37,7 +37,7 @@ double getNumber(char stringIn [])
 	return number;
 }
 
-double * getResult (double *ptrArray, double firstNumber, double secondNumber, double increment, char string [], double (*ptrMathFunc)(double))
+double * getResult (double *ptrArray, double firstNumber, double secondNumber, double increment, double (*ptrMathFunc)(double))
 {
 	int j = 0;
 	for(double i = firstNumber; i <= secondNumber; i+= increment){
@@ -48,11 +48,13 @@ double * getResult (double *ptrArray, double firstNumber, double secondNumber, d
 	return ptrArray;
 }
 
-void printResult(double ptrArray [], char string [], int count)
+void printResult(double ptrArray [], char string [], double firstNumber, double secondNumber, double increment)
 {
-	for (int i = 0; i < count; i++){
+	int j = 0;
+	for (double i = firstNumber; i <= secondNumber; i+= increment){
 
-		printf("Argument: %f radians    ",  ptrArray [i]);
-	    printf ("%s: %.20f\n",string, ptrArray [i]);
+		printf("Argument: %f radians    ", i);
+	    printf ("%s: %.20f\n",string, ptrArray [j]);
+		j++;
 	}	
 }
