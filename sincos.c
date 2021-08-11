@@ -5,23 +5,26 @@
 #include <stdlib.h>
 
 double getNumber(char stringIn []);
-double *getResult(double firstNumber, double secondNumber, double increment, char (*string), double (*ptrMathFunc)(double));
-//void printResult(double radians, char (*string));
+double * getResult (double *ptrArray, double firstNumber, double secondNumber, double increment, char string [], double (*ptrMathFunc)(double));
 void printResult(double ptrArray [], char string [], int count);
 
-//int arrayLength;
+
 int main (void)
 {
-	//int arrayLength;
+
 	double firstNumber = getNumber("first");	
 	double secondNumber = getNumber("second");	
 	double increment = getNumber("increment");
+
+	int arrayLength = ((secondNumber - firstNumber) + 1.0 ) / increment;
+	double array[arrayLength];
+	double *ptrArray = array;
 	 		
-	double*  ptrArray = getResult(firstNumber, secondNumber, increment, "sin", sin);  
-	//printResult( ptrArray, "sin", arrayLength);
+	ptrArray = getResult(ptrArray, firstNumber, secondNumber, increment, "sin", sin);  
+	printResult( ptrArray, "sin", arrayLength);
     printf ("\n");	
-	
-    //getResult(firstNumber, secondNumber, increment, "cos", cos);
+	ptrArray = getResult(ptrArray, firstNumber, secondNumber, increment, "sin", cos);  
+	printResult( ptrArray, "cos", arrayLength);
 	
  return 0;
 }
@@ -34,28 +37,22 @@ double getNumber(char stringIn [])
 	return number;
 }
 
-double * getResult (double firstNumber, double secondNumber, double increment, char string [], double (*ptrMathFunc)(double))
+double * getResult (double *ptrArray, double firstNumber, double secondNumber, double increment, char string [], double (*ptrMathFunc)(double))
 {
-	int arrayLength = secondNumber - firstNumber + 1;
-	double array[arrayLength];
-	double *ptrArray = array;
 	int j = 0;
 	for(double i = firstNumber; i <= secondNumber; i+= increment){
 		
-		array[j] = ptrMathFunc(i);
+		ptrArray[j] = ptrMathFunc(i);
 		j++;
 	}
-	//return ptrArray;
-    printResult(ptrArray, string, arrayLength);
+	return ptrArray;
 }
 
 void printResult(double ptrArray [], char string [], int count)
 {
 	for (int i = 0; i < count; i++){
+
 		printf("Argument: %f radians    ",  ptrArray [i]);
 	    printf ("%s: %.20f\n",string, ptrArray [i]);
-	}
-	//printf("Argument: %f radians    ",  radians);
-    //printf ("%s: %.20f\n",string, radians);
-	
+	}	
 }
