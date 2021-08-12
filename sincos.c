@@ -17,6 +17,8 @@ int main (void)
 
 	int arrayLength = (((secondNumber - firstNumber) / (increment)) + 1);
 	
+	
+
 	printf("this %d:\n", arrayLength);
 
 	double array[arrayLength];
@@ -36,7 +38,7 @@ double getNumber(char stringIn [])
 {
 	double number;
 	printf("Input your %s number:\n", stringIn);
-    scanf("%lf", &number);
+    scanf("%lf", &number);  printf("%20.15lf",number);
 	return number;
 }
 
@@ -44,10 +46,7 @@ double * getResult (int count, double *ptrArray, double firstNumber,
 double secondNumber, double increment, double (*ptrMathFunc)(double))
 {
 	int j = 0;
-	for(double i = firstNumber ; ; i+= increment, j++){
-		
-		if (j == count)
-					break;
+	for(double i = firstNumber ; j < count; i+= increment, j++){
 		
 		ptrArray[j] = ptrMathFunc(i);		
 	}
@@ -58,11 +57,8 @@ void printResult(int count, double ptrArray [], char string [], double firstNumb
 double secondNumber, double increment)
 {
 	int j = 0;
-	for (double i = firstNumber; ; i+= increment, j++){
-		
-        if (j == count)
-					break;
-		
+	for ( double i = firstNumber; j < count ; i+= increment, j++){
+
 		printf("Argument: %f radians    ", i);
 	    printf ("%s: %.20f\n",string, ptrArray [j]);		
 	}	
