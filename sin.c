@@ -5,17 +5,17 @@
 #include <stdlib.h>
 
 
-double getNumber(char stringIn []);
-double getSin(double sinCosNumber, int numberDegree);
-double getCos(double sinCosNumber, int numberDegree);
+long double getNumber(char stringIn []);
+long double getSin(long double sinCosNumber, int numberDegree);
+long double getCos(long double sinCosNumber, int numberDegree);
 int factorial(int n);
 
 int main (void)
 {
-   double sinCosNumber = getNumber("sinCosNumber");
-   int numberDegree = getNumber("degree");
-   
-   double result = getSin(sinCosNumber, numberDegree);
+   long double sinCosNumber = getNumber("sinCosNumber");
+   int numberDegree = getNumber("numberDegree");
+
+   long double result = getSin(sinCosNumber, numberDegree);
    printf ("result %.20f\n", result);
    printf ("sin  : %.20f \n", sin(sinCosNumber) );
    result = getCos(sinCosNumber, numberDegree);
@@ -25,39 +25,48 @@ int main (void)
 return 0;
 }
 
-double getNumber(char stringIn [])
+long double getNumber(char stringIn [])
 {
-	double number;
+	long double number;
 	printf("Input your %s number:\n", stringIn);
     scanf("%lf", &number);
 
 	return number;
 }
 
-double getSin(double sinCosNumber, int numberDegree)
+long double getSin(long double sinCosNumber, int numberDegree)
 {
-	double sin = 0;
-	double n = 1;
-
+	long double sin = 0;
+	long double n = 1;
+	
+	
 	for(int i = 0; i < numberDegree; i++, n++) {
 		
-	sin += (((pow((double)(-1),(double)(n + 1))) *
-	(pow((double)sinCosNumber,(double)(2 * n - 1))))
-	/ factorial(2 * n - 1));
+	sin += (((pow((long double)(-1),(long double)(n + 1))) *
+	(pow((long double)sinCosNumber,(long double)(2 * n - 1))))
+	/ (factorial(2 * n - 1)));
+
+    //printf("Sin %f number:\n", (((pow((double)(-1),(double)(n + 1))) *
+	//(pow((double)sinCosNumber,(double)(2 * n - 1))))
+	/// factorial(2 * n - 1)));
+	
+	//printf("Sin1 %f number:\n", sin);
+	
+    
 
 	}	
 	return sin;
 }
 
-double getCos(double sinCosNumber, int numberDegree)
+long double getCos(long double sinCosNumber, int numberDegree)
 {
-	double cos = 0;
-	double n = 0;	
+	long double cos = 0;
+	long double n = 0;	
 
 	for(int i = 0; i < numberDegree; i++, n++) {
 		
-	cos += (((pow((double)(-1),(double)(n))) *
-	(pow((double)sinCosNumber,(double)(2 * n ))))
+	cos += (((pow((long double)(-1),(long double)(n))) *
+	(pow((long double)sinCosNumber,(long double)(2 * n ))))
 	/ (factorial(2 * n )));
 
 	}	
