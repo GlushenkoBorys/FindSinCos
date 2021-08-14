@@ -3,20 +3,18 @@
 #include <stdbool.h>
 #include <limits.h>
 #include <stdlib.h>
+#include "getSinCos.h"
 
 double getNumber(char stringIn []);
-double * getResult (int count, double *ptrArray, double firstNumber, double secondNumber, double increment, double (*ptrMathFunc)(double, int), int numberDegree);
+double * getResult (int count, double *ptrArray, double firstNumber, double secondNumber, double increment, double (*ptrMathFunc)(double firNumber));
 void printResult(int count, double ptrArray [], char string [], double firstNumber, double secondNumber, double increment);
-double getSin(double sinNumber, int numberDegree);
-double getCos(double cosNumber, int numberDegree);
+
 
 int main (void)
 {
 	double firstNumber = getNumber("first");	
 	double secondNumber = getNumber("second");
 	double increment = getNumber("increment");
-	int numberDegree = getNumber("degree");
-
 
 	int arrayLength = (((secondNumber - firstNumber) / (increment)) + 1);
 	
@@ -24,11 +22,15 @@ int main (void)
 	double *ptrArray = array;
 	printf ("\n");
 	 		
-	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, getSin, numberDegree);  
+	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, getSin);  
 	printResult(arrayLength, ptrArray, "sin", firstNumber, secondNumber, increment);
+	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, sin);  
+	printResult(arrayLength, ptrArray, "mathSin", firstNumber, secondNumber, increment);
     printf ("\n");	
-	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, getCos, numberDegree);  
+	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, getCos);  
 	printResult(arrayLength, ptrArray, "cos", firstNumber, secondNumber, increment);
+	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, cos);  
+	printResult(arrayLength, ptrArray, "mathCos", firstNumber, secondNumber, increment);
 	
  return 0;
 }
@@ -42,12 +44,12 @@ double getNumber(char stringIn [])
 	return number;
 }
 
-double * getResult (int count, double *ptrArray, double firstNumber, 
-double secondNumber, double increment, double (*ptrMathFunc)(double firNumber, int degree), int numberDegree)
+double * getResult (int count, double *ptrArray, double firstNumber, double secondNumber, 
+double increment, double (*ptrMathFunc)(double firNumber))
 {	
 	for(int i=0; i< count; i++)
 	{
-		ptrArray[i] = ptrMathFunc(firstNumber, numberDegree);
+		ptrArray[i] = ptrMathFunc(firstNumber);
 		
 		firstNumber+=increment;		
 	}
@@ -67,16 +69,8 @@ double secondNumber, double increment)
 	}	
 }
 
-double getSin(double sinNumber, int numberDegree)
-{
-	double number = numberDegree;
-	
-	return number;
-}
 
-double getCos(double cosNumber, int numberDegree)
-{
-	double number = numberDegree;
-	
-	return number;
-}
+
+
+
+
