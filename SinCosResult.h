@@ -7,6 +7,7 @@
 double getSin(double sinCosNumber);
 double getCos(double sinCosNumber);
 unsigned long long int factorial(unsigned long long int n);
+double findMinAfterTwoPi(double number);
 const int numberDegree = 10;
 const double twoPi = 6.28;
 
@@ -15,12 +16,7 @@ double getSin(double sinCosNumber)
 	double sin = 0;
 	double n = 1;
 	
-	if(sinCosNumber > twoPi) {	   
-	 while( sinCosNumber > twoPi )
-	 {
-		 sinCosNumber -= twoPi;
-	 }	   
-   }
+	sinCosNumber = findMinAfterTwoPi(sinCosNumber);
 
 	for(int i = 0; i < numberDegree; i++, n++) {
 		
@@ -37,12 +33,7 @@ double getCos(double sinCosNumber)
 	double cos = 0;
 	double n = 0;	
 	
-	if(sinCosNumber > twoPi) {	   
-	 while( sinCosNumber > twoPi )
-	 {
-		 sinCosNumber -= twoPi;
-	 }	   
-   }
+    sinCosNumber = findMinAfterTwoPi(sinCosNumber);
 
 	for(int i = 0; i < numberDegree; i++, n++) {
 		
@@ -63,4 +54,15 @@ unsigned long long int factorial(unsigned long long int n)
 	   n = n * factorial(n - 1);
 	   return n;
 	   }
+}
+
+double findMinAfterTwoPi(double number) {
+	
+	if(number > twoPi) {	   
+	 while( number > twoPi )
+	 {
+		 number -= twoPi;
+	 }	   
+   }
+   return number;
 }
