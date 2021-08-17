@@ -8,6 +8,7 @@
 double getNumber(char stringIn []);
 double * getResult (int count, double *ptrArray, double firstNumber, double secondNumber, double increment, double (*ptrMathFunc)(double firNumber));
 void printResult(int count, double ptrArray [], char string [], double firstNumber, double secondNumber, double increment);
+double findMinAfterTwoPi(double number);
 
 
 int main (void)
@@ -60,7 +61,7 @@ double increment, double (*ptrMathFunc)(double firNumber))
 void printResult(int count, double ptrArray [], char string [], double firstNumber, 
 double secondNumber, double increment)
 {
-	for(int i=0; i< count; i++)
+	for(int i = 0; i < count; i++)
 	{
 		printf("Argument: %f radians ", firstNumber);
 	    printf ("%s: %.20f\n",string, ptrArray [i]);
@@ -68,6 +69,9 @@ double secondNumber, double increment)
 		
 	}	
 }
+
+
+
 
 
 
