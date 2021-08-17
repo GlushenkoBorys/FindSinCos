@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <limits.h>
 #include <stdlib.h>
-#include "getSinCos.h"
+#include "SinCosResult.h"
 
 double getNumber(char stringIn []);
 double * getResult (int count, double *ptrArray, double firstNumber, double secondNumber, double increment, double (*ptrMathFunc)(double firNumber));
@@ -22,7 +22,7 @@ int main (void)
 	double array[arrayLength];
 	double *ptrArray = array;
 	printf ("\n");
-	 		
+		
 	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, getSin);  
 	printResult(arrayLength, ptrArray, "sin", firstNumber, secondNumber, increment);
 	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, sin);  
