@@ -42,6 +42,7 @@ double getCos(double sinCosNumber)
 	/ ((double)(factorial(2 * n )));
 
 	}	
+	//
 	return cos;
 }
 
