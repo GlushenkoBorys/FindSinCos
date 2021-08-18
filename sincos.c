@@ -43,6 +43,7 @@ double getNumber(char stringIn [])
     scanf("%lf", &number);
 
 	return number;
+    //
 }
 
 double * getResult (int count, double *ptrArray, double firstNumber, double secondNumber, 
