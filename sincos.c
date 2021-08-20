@@ -4,6 +4,7 @@
 #include <limits.h>
 #include <stdlib.h>
 #include "SinCosResult.h"
+#include <time.h>
 
 double getNumber(char stringIn []);
 double * getResult (int count, double *ptrArray, double firstNumber, double secondNumber, double increment, double (*ptrMathFunc)(double firNumber));
@@ -18,11 +19,15 @@ int main (void)
 	double increment = getNumber("increment");
 
 	int arrayLength = (((secondNumber - firstNumber) / (increment)) + 1);
-	
+	printf("arrayLength: %d\n", arrayLength);
 	double array[arrayLength];
 	double *ptrArray = array;
 	printf ("\n");
-		
+	
+    time_t start, end;
+	time (&start);
+
+	//for(int i =0; i < 100; i++) {
 	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, getSin);  
 	printResult(arrayLength, ptrArray, "sin", firstNumber, secondNumber, increment);
 	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, sin);  
@@ -32,6 +37,10 @@ int main (void)
 	printResult(arrayLength, ptrArray, "cos", firstNumber, secondNumber, increment);
 	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, cos);  
 	printResult(arrayLength, ptrArray, "mathCos", firstNumber, secondNumber, increment);
+	//}
+	
+	time (&end);
+	printf ("%f\n", difftime(end, start));
 	
  return 0;
 }
@@ -43,7 +52,6 @@ double getNumber(char stringIn [])
     scanf("%lf", &number);
 
 	return number;
-    //
 }
 
 double * getResult (int count, double *ptrArray, double firstNumber, double secondNumber, 
