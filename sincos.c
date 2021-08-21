@@ -27,17 +27,17 @@ int main (void)
     time_t start, end;
 	time (&start);
 
-
+    for(int i =0; i < 100; i++) {
 	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, getSin);  
-	printResult(arrayLength, ptrArray, "sin", firstNumber, secondNumber, increment);
-	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, sin);  
-	printResult(arrayLength, ptrArray, "mathSin", firstNumber, secondNumber, increment);
-    printf ("\n");	
+	//printResult(arrayLength, ptrArray, "sin", firstNumber, secondNumber, increment);
+	//ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, sin);  
+	//printResult(arrayLength, ptrArray, "mathSin", firstNumber, secondNumber, increment);
+    //printf ("\n");	
 	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, getCos);  
-	printResult(arrayLength, ptrArray, "cos", firstNumber, secondNumber, increment);
-	ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, cos);  
-	printResult(arrayLength, ptrArray, "mathCos", firstNumber, secondNumber, increment);
-	
+	//printResult(arrayLength, ptrArray, "cos", firstNumber, secondNumber, increment);
+	//ptrArray = getResult(arrayLength, ptrArray, firstNumber, secondNumber, increment, cos);  
+	//printResult(arrayLength, ptrArray, "mathCos", firstNumber, secondNumber, increment);
+	}
 	
 	time (&end);
 	printf ("%f\n", difftime(end, start));
